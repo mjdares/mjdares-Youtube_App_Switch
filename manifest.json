@@ -1,0 +1,27 @@
+	{
+		"manifest_version": 3,
+		"name": "YouTube Video Controller",
+		"version": "1.0",
+		"description": "Automatically pause YouTube videos when switching tabs and resume when returning.",
+		"permissions": [
+			"tabs",
+			"activeTab",
+			"scripting"
+		],
+		"host_permissions": [
+			"https://www.youtube.com/*"
+		],
+		"background": {
+			"service_worker": "background.js"
+		},
+		"content_scripts": [
+			{
+				"matches": [
+					"*://www.youtube.com/watch*"
+				],
+				"js": [
+					"content.js"
+				]
+			}
+		]
+	}
